@@ -1,5 +1,5 @@
 {
-  "name": "math.substract",
+  "name": "math.subtract",
   "type": "object",
   "description": "Returns a list of all 'a' inputs minus the first 'b' input or the given value.",
   "inputs": {

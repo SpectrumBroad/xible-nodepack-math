@@ -1,7 +1,7 @@
 {
 	"name": "math.multiply",
 	"type": "object",
-	"description": "Returns a list of values for each multiplicand times the first multiplier input or the given multiplier.",
+	"description": "Returns the sum of all multiplicand values times the sum of all multiplier values or the given multiplier.",
 	"inputs": {
 		"multiplicand": {
 			"type": "math.number"

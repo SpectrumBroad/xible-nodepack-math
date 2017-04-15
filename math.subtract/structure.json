@@ -1,7 +1,7 @@
 {
   "name": "math.subtract",
   "type": "object",
-  "description": "Returns a list of all 'a' inputs minus the first 'b' input or the given value.",
+  "description": "Returns the sum of all 'a' inputs minus the sum of all 'b' inputs or the given value.",
   "inputs": {
     "a": {
       "type": "math.number"

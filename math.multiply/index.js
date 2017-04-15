@@ -10,22 +10,14 @@ module.exports = function(NODE) {
 
 			multiplierIn.getValues(state).then((multipliers) => {
 
-				//get the multiplier
-				//if multiply multipliers given, we take the first one only
-				let multiplier;
-				if (multipliers.length) {
-					multiplier = multipliers[0];
-				} else {
-					multiplier = NODE.data.value || 0;
+				let multiplierInit = 0;
+				if (!multipliers.length) {
+					multiplierInit = +NODE.data.value || 0;
 				}
 
-				//take all mutiplicans times the multiplier and output them
-				let result = [];
-				multiplicands.forEach(multiplicand => {
-					result.push(multiplicand * multiplier);
-				});
-
-				callback(result);
+				const multiplicand = multiplicands.reduce((prevVal, newVal) => +prevVal + (+newVal));
+				const multiplier = multipliers.reduce((prevVal, newVal) => +prevVal + (+newVal), multiplierInit);
+				callback(multiplicand * multiplier);
 
 			});
 

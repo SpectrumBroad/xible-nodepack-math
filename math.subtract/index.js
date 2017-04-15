@@ -7,22 +7,14 @@ module.exports = function(NODE) {
 
 			NODE.getInputByName('b').getValues(state).then((bNumbers) => {
 
-				//get the min (b) value
-				//if multiply b values given, we take the first one only
-				var min;
-				if (bNumbers.length) {
-					min = bNumbers[0];
-				} else {
-					min = NODE.data.value || 0;
+				let bInit = 0;
+				if (!bNumbers.length) {
+					bInit = +NODE.data.value || 0;
 				}
 
-				//take all aNumbers minus the min and output them
-				var result = [];
-				aNumbers.forEach(aNumber => {
-					result.push(aNumber - min);
-				});
-
-				callback(result);
+				const sumA = aNumbers.reduce((prevVal, newVal) => +prevVal + (+newVal));
+				const sumB = bNumbers.reduce((prevVal, newVal) => +prevVal + (+newVal), bInit);
+				callback(sumA - sumB);
 
 			});
 

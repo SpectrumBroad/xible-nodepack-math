@@ -6,13 +6,7 @@ module.exports = function(NODE) {
 	resultOut.on('trigger', (conn, state, callback) => {
 
 		numberIn.getValues(state).then((numbers) => {
-
-			let result = numbers.map((number) => {
-				return Math.round(number);
-			});
-
-			callback(result);
-
+			callback(Math.round(numbers.reduce((prevVal, newVal) => +prevVal + (+newVal))));
 		});
 
 	});

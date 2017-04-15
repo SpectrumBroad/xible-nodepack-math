@@ -6,10 +6,7 @@ module.exports = function(NODE) {
 	resultOut.on('trigger', (conn, state, callback) => {
 
 		valuesIn.getValues(state).then((numbers) => {
-
-			let result = numbers.reduce((previousValue, currentValue) => previousValue + currentValue);
-			callback(result);
-
+			callback(numbers.reduce((prevVal, newVal) => +prevVal + (+newVal)));
 		});
 
 	});

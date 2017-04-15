@@ -4,12 +4,7 @@ module.exports = function(NODE) {
 	resultOut.on('trigger', (conn, state, callback) => {
 
 		NODE.getInputByName('values').getValues(state).then((vals) => {
-
-			let result = vals.reduce((prevVal, newVal) => {
-				return +prevVal + newVal;
-			}, 0);
-			callback(result + (+NODE.data.value || 0));
-
+			callback(vals.reduce((prevVal, newVal) => +prevVal + (+newVal), (+NODE.data.value || 0)));
 		});
 
 	});

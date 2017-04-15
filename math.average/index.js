@@ -7,7 +7,7 @@ module.exports = function(NODE) {
 
 		numbersIn.getValues(state).then((numbers) => {
 
-			let sum = numbers.reduce((previousValue, currentValue) => previousValue + currentValue);
+			const sum = numbers.reduce((prevVal, newVal) => +prevVal + (+newVal));
 			callback(sum / numbers.length);
 
 		});

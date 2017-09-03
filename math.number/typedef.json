@@ -1,0 +1,6 @@
+{
+  "math.number": {
+    "color": "red",
+    "extends": "object"
+  }
+}

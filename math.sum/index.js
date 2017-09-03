@@ -1,14 +1,13 @@
-module.exports = function(NODE) {
+'use strict';
 
-	let valuesIn = NODE.getInputByName('values');
+module.exports = (NODE) => {
+  const valuesIn = NODE.getInputByName('values');
 
-	let resultOut = NODE.getOutputByName('result');
-	resultOut.on('trigger', (conn, state, callback) => {
-
-		valuesIn.getValues(state).then((numbers) => {
-			callback(numbers.reduce((prevVal, newVal) => +prevVal + (+newVal)));
-		});
-
-	});
-
+  const resultOut = NODE.getOutputByName('result');
+  resultOut.on('trigger', (conn, state, callback) => {
+    valuesIn.getValues(state)
+    .then((numbers) => {
+      callback(numbers.reduce((prevVal, newVal) => +prevVal + (+newVal)));
+    });
+  });
 };

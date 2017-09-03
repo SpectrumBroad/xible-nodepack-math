@@ -1,17 +1,14 @@
-module.exports = function(NODE) {
+'use strict';
 
-	let numbersIn = NODE.getInputByName('numbers');
+module.exports = (NODE) => {
+  const numbersIn = NODE.getInputByName('numbers');
 
-	let numberOut = NODE.getOutputByName('number');
-	numberOut.on('trigger', (conn, state, callback) => {
-
-		numbersIn.getValues(state).then((numbers) => {
-
-			const sum = numbers.reduce((prevVal, newVal) => +prevVal + (+newVal));
-			callback(sum / numbers.length);
-
-		});
-
-	});
-
+  const numberOut = NODE.getOutputByName('number');
+  numberOut.on('trigger', (conn, state, callback) => {
+    numbersIn.getValues(state)
+    .then((numbers) => {
+      const sum = numbers.reduce((prevVal, newVal) => +prevVal + (+newVal));
+      callback(sum / numbers.length);
+    });
+  });
 };

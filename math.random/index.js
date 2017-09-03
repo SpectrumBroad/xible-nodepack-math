@@ -1,9 +1,9 @@
-module.exports = function(NODE) {
+'use strict';
 
-	NODE
-		.getOutputByName('number')
-		.on('trigger', (conn, state, callback) => {
-			callback(Math.random());
-		});
-
+module.exports = (NODE) => {
+  NODE
+  .getOutputByName('number')
+  .on('trigger', (conn, state, callback) => {
+    callback(Math.random());
+  });
 };

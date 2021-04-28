@@ -3,7 +3,5 @@
 module.exports = (NODE) => {
   NODE
   .getOutputByName('number')
-  .on('trigger', (conn, state, callback) => {
-    callback(Math.random());
-  });
+  .on('trigger', async () => Math.random());
 };

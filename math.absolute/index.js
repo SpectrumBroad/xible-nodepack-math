@@ -4,11 +4,8 @@ module.exports = (NODE) => {
   const numberIn = NODE.getInputByName('number');
 
   const resultOut = NODE.getOutputByName('result');
-  resultOut.on('trigger', (conn, state, callback) => {
-    numberIn.getValues(state)
-    .then((numbers) => {
-      // take all aNumbers minus the min and output them
-      callback(numbers.map(number => Math.abs(number)));
-    });
+  resultOut.on('trigger', async (conn, state) => {
+    const numbers = await numberIn.getValues(state);
+    return numbers.map((number) => Math.abs(number));
   });
 };

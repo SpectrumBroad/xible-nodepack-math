@@ -3,7 +3,5 @@
 module.exports = (NODE) => {
   NODE
   .getOutputByName('number')
-  .on('trigger', (conn, state, callback) => {
-    callback(+(NODE.data.value || 0));
-  });
+  .on('trigger', async () => +(NODE.data.value || 0));
 };

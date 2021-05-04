@@ -4,12 +4,12 @@
   "description": "Sums all the input values together, including the given value.",
   "inputs": {
     "values": {
-  		"type": "math.number"
-  	}
+      "type": "math.number"
+    }
   },
   "outputs": {
     "result": {
-  		"type": "math.number"
-  	}
+      "type": "math.number"
+    }
   }
 }
